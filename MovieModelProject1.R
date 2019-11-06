@@ -116,5 +116,5 @@ user_effect <- training_data %>% left_join(movie_effect, by="movieId") %>% group
 y_hat_mu <- y_hat_m + validation %>% left_join(user_effect,by="userId")%>%.$bu_hat_u
 
 # After the user effect, lets now calculate the RMSE
-user_movie_model_rmse <- RMSE(y_hat_mu,validation$rating) # 0.8653488
+user_movie_model_rmse <- RMSE(y_hat_mu,validation$rating)
 user_movie_model_rmse # 0.86489

@@ -166,7 +166,7 @@ From the below histogram plot it is helpful to see the movie effect where we can
 bi %>% ggplot(aes(b_hat_i, color="movie effect")) + geom_histogram(bins=10,fill="brown")
 ```
 
-At the same time you can also see from the below histogram plot it is helpful to see the user effect, i.e some users in general rate the movies they see optimistically than others. Some users more pessimistic than others.
+At the same time you can also see from the below histogram plot it is helpful to see the user effect, some users in general rate the movies they see optimistically than others. Some users more pessimistic than others.
 
 ```{r}
 bu %>% ggplot(aes(bu_hat_u, color="user effect")) + geom_histogram(bins=10,fill="brown")

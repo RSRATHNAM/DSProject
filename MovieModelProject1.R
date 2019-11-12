@@ -90,7 +90,7 @@ simplest_model_rmse # 1.061202
 # y_hat_m <- mu + movie_effect
 
 # Also there are movies which are not rated that many times. These movies will
-# have negative effect on prediction. Using regularization we can begate this effect
+# have negative effect on prediction. Using regularization we can beget this effect
 lambda = 3.0 # I am starting with lambda equals 3.
 
 #movie_effect <- training_data %>% group_by(movieId) %>% summarize(bi=(mean(rating)-average_rating_pred))

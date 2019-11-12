@@ -132,9 +132,10 @@ mu <- mean(edx$rating) #3.512465
 # Rearranging this equation we get bi = y_hat_i - mu, where y_hat_i is the average ratings
 # of movie i, where bi is the vector of movie effects and b_hat_i is the movie effect residual
 # for movie i. Where mu is the average rating of all movies.
-
-bi<-edx %>% group_by(movieId) %>% summarize(b_hat_i = (mean(rating)-mu))
-
+# To minimize the effect of the scarcely rated movies we will introduce Regularization.
+# We will start with the lambda value equals 3
+lambda = 3
+bi<-edx %>% group_by(movieId) %>% summarize(b_hat_i = sum(rating-mu)/(n()+lambda))
 
 
 ############################CALCULATING bu ###################################
@@ -146,7 +147,8 @@ bi<-edx %>% group_by(movieId) %>% summarize(b_hat_i = (mean(rating)-mu))
 
 # Add b_hat_i to the movies before grouping by userid.
 # Apply the equation bu = y_hat_iu - mu - bi to the grouped data
-bu<-edx %>% left_join(bi,by="movieId") %>% group_by(userId) %>% summarize(bu_hat_u = mean(rating-mu-b_hat_i))
+
+bu<-edx %>% left_join(bi,by="movieId") %>% group_by(userId) %>% summarize(bu_hat_u = sum(rating-mu-b_hat_i)/(n()+lambda))
 
 
 ############### Building the equation ################################
@@ -197,4 +199,4 @@ rmse_results
 ## Conclusion
 We were able to build the model using the equation y_hat_iu = mu + bi + bu. We then were able to run this against the validation set and calculated the RMSE. We obtained RMSE of 0.8653488 which tells us to we are able to predict the rating for the movie pretty close to the actual user's rating for any movie.
 
-RMSE RESULT: 0.8653488
+RMSE RESULT: 0.86489

@@ -197,6 +197,6 @@ rmse_results
 ```
 
 ## Conclusion
-We were able to build the model using the equation y_hat_iu = mu + bi + bu. We then were able to run this against the validation set and calculated the RMSE. We obtained RMSE of 0.8653488 which tells us to we are able to predict the rating for the movie pretty close to the actual user's rating for any movie.
+We were able to build the model using the equation y_hat_iu = mu + bi + bu. We then were able to run this against the validation set and calculated the RMSE. We obtained RMSE of 0.86489 which tells us to we are able to predict the rating for the movie pretty close to the actual user's rating for any movie.
 
 RMSE RESULT: 0.86489
